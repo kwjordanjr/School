@@ -1,0 +1,11 @@
+
+.Advertisement {
+    background-color: #b4a7d6;
+    height: 20%;
+    width: auto;
+    display: inline-flexbox;
+    align-content: center;
+    justify-content: center;
+    margin: 10px;
+    
+}
