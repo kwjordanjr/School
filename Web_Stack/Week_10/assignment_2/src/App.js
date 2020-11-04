@@ -4,24 +4,20 @@ import Boxes from './components/Boxes.jsx'
 import ColorForm from './components/ColorForm.jsx'
 
 
-
-var colors = []
-
 function App() {
 
   
 
-  const [currentColor, setCurrentColor] = useState("");
+  const [currentColor, setCurrentColor] = useState([]);
   const addColor = ( newColor ) => {
-    colors.push({"background-color":currentColor});
-    setCurrentColor( newColor );
-    console.log(colors)
+    setCurrentColor( prevColor => [...prevColor,{'background-color':newColor}]);
+    console.log(currentColor)
   }
 
   return (
     <div>
       <ColorForm onNewColor={ addColor }/>
-      <Boxes boxes={ colors }/>
+      <Boxes boxes={ currentColor }/>
     </div>
   );
 }
