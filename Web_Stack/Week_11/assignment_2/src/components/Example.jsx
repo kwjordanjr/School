@@ -17,12 +17,11 @@ const Example = (props) => {
         .then(response => response.json())
         .then(response => setPeople(response))
         .then(response => console.log(response))
-  }, []);
+  }, [addr]);
 
   return (
 
     <div>
-        <p>{props.type}</p>
         <p>{Object.keys(people)[0]}: {people[Object.keys(people)[0]]}</p>
         <p>{Object.keys(people)[1]}: {people[Object.keys(people)[1]]}</p>
         <p>{Object.keys(people)[2]}: {people[Object.keys(people)[2]]}</p>

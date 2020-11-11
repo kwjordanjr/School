@@ -1,43 +1,39 @@
 import React, { useState } from 'react';
-import { Link, navigate } from '@reach/router';
+import { navigate } from '@reach/router';
 
 const NavBar = (props) => {
 
+    //const [type, setType] = useState('');
     const [type, setType] = useState('');
     const [id, setId] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/' + {type} + '/' + {id} + '/')
+        navigate('/' + type + '/' + id + '/')
 
+        
     }
 
-
-
+    const changeType = (newType) => {
+        setType(newType)
+      }
 
 
 
     return (
     <div>
-        <form onSubmit={ handleSubmit }>
-            <select>
-                <option onSelect={ (e) => {
-                    e.preventDefault();
-                    setType('people');
-                }}
-                >
-                    people</option>
-                    <option onSelect={ (e) => {
-                    e.preventDefault();
-                    setType('planets');
-                }}
-                >
-                    planets</option>
+        <form name ='data' onSubmit={ handleSubmit }>
+        <select 
+        onChange={(event) => changeType(event.target.value)}
+        value={type}>
+                <option value='people'>people</option>
+                <option value='planets'>planets</option>
             </select>
             <p>ID: </p>
             <input name="ID" onChange={ (e) => {
+                e.preventDefault()
                 setId(e.target.value);
-                console.log(id);
+                console.log('/' + type + '/' + id + '/');
             }}/>
             <input type='submit' value="Submit"/>
         </form>
